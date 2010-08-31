@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+var sys      = require('sys')
+  , showoff  = require('../lib/showoff')
+  , OptParse = require('optparse').OptionParser
+
+var app      = require("../lib/app")
+  , switches = [
+    ['-h', '--help',      'Good Luck, Have Fun'],
+    ['-p', '--presenter', 'Be a Spirit Guide'],
+  ]
+
+var parser       = new OptParse(switches)
+  , options      = { isPresenting: false }
+
+parser.on('help', function(opt, value) {
+  sys.puts("Use -p if you want to be a websocket base guide")
+  process.exit(0)
+})
+parser.on('presenter', function(opt, value) {
+  options.presenting = true
+})
+parser.banner = 'Usage: ' + process.ARGV[1] + ' [option]'
+parser.parse(process.ARGV)
+
+app.run(options)
