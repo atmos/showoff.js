@@ -8,6 +8,10 @@ This is what I did during the first [node knockout][knockout].
 Running
 =======
 
+    % coffee -wc -o lib --no-wrap src/**/*.coffee
+
+In another shell run:
+
     % node server.js
 
 Setup
@@ -15,7 +19,6 @@ Setup
 
 This is designed to be run locally and shared with people at a conference.  The
 person connecting from localhost drives everyone's experience with websockets. :)
-
 
 [node]: http://nodejs.org
 [showoff]: http://github.com/schacon/showoff
